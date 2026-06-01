@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вяжем вместе | Схемы, узоры, мастер-классы</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== ГЛОБАЛЬНЫЕ СТИЛИ ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding-top: 70px;
+            background: linear-gradient(135deg, #fdf8f0 0%, #f5ede0 100%);
+            font-family: 'Roboto', sans-serif;
+            color: #3d2b1a;
+        }
+
+        /* ===== НАВИГАЦИЯ ===== */
+        .navbar {
+            background: linear-gradient(135deg, #5a3a22 0%, #3d2b1a 100%);
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #f5e6c8 !important;
+            text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+        }
+        .navbar-brand span {
+            color: #e8c47a;
+        }
+        .navbar-nav > li > a {
+            color: #f5e6c8 !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .navbar-nav > li > a:hover,
+        .navbar-nav > .active > a {
+            background-color: #e8c47a !important;
+            color: #3d2b1a !important;
+        }
+
+        /* ===== ГЛАВНЫЙ БАННЕР ===== */
+        .hero-section {
+            background: linear-gradient(135deg, #e8d5b8 0%, #d4c0a0 100%);
+            border-radius: 20px;
+            padding: 50px 30px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: "🧶";
+            font-size: 200px;
+            position: absolute;
+            right: -30px;
+            bottom: -50px;
+            opacity: 0.1;
+        }
+        .hero-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: #3d2b1a;
+            margin-bottom: 15px;
+        }
+        .hero-section p {
+            font-size: 20px;
+            color: #5a3a22;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+        .btn-knitting {
+            background: linear-gradient(135deg, #8b4513 0%, #6b3410 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .btn-knitting:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #a0522d 0%, #8b4513 100%);
+            color: white;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #8b4513;
+            color: #8b4513;
+        }
+        .btn-outline:hover {
+            background: #8b4513;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ===== КАРТОЧКИ ===== */
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+            height: 100%;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .feature-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .feature-card h3 {
+            color: #8b4513;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* ===== ТАБЛИЦА ===== */
+        .knitting-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        .knitting-table thead {
+            background: linear-gradient(135deg, #8b4513 0%, #6b3410 100%);
+            color: white;
+        }
+        .knitting-table thead th {
+            padding: 15px;
+            font-weight: 600;
+            border: none;
+        }
+        .knitting-table tbody tr:hover {
+            background-color: #fdf5e6;
+            cursor: pointer;
+        }
+        .knitting-table tbody td {
+            padding: 12px 15px;
+            vertical-align: middle;
+            border-color: #e8d5b8;
+        }
+        .difficulty-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .difficulty-easy {
+            background: #d4edda;
+            color: #155724;
+        }
+        .difficulty-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .difficulty-hard {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* ===== БЛОК УЗОРОВ ===== */
+        .pattern-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            border-left: 4px solid #e8c47a;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .pattern-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .pattern-card h4 {
+            color: #8b4513;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* ===== КАЛЬКУЛЯТОР ===== */
+        .calculator-card {
+            background: linear-gradient(135deg, #fff8f0 0%, #fdf0e0 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e8c47a;
+        }
+        .calculator-card h3 {
+            color: #8b4513;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+        }
+        
+        /* Стили для списка пряжи */
+        .yarn-list-container {
+            max-height: 280px;
+            overflow-y: auto;
+            background: #fdf0e0;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        .yarn-item {
+            padding: 12px 15px;
+            margin: 8px;
+            background: white;
+            border: 2px solid #e8d5b8;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .yarn-item:hover {
+            transform: translateX(3px);
+            border-color: #e8c47a;
+        }
+        .yarn-item.selected {
+            background: #e8c47a;
+            border-color: #8b4513;
+        }
+
+        /* ===== ДИНАМИЧЕСКИЙ СПИСОК ===== */
+        .ideas-container {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .todo-list {
+            list-style: none;
+            padding: 0;
+        }
+        .todo-list li {
+            background: #fdf8f0;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e8d5b8;
+        }
+        .todo-list li:hover {
+            transform: translateX(5px);
+            background: #fff8e7;
+        }
+        .todo-text {
+            cursor: pointer;
+            font-size: 16px;
+            flex-grow: 1;
+        }
+        .todo-text.completed {
+            text-decoration: line-through;
+            color: #aaa;
+        }
+        .delete-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 6px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .delete-btn:hover {
+            background: #c82333;
+            transform: scale(1.02);
+        }
+        .add-todo-form {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .add-todo-form input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e8c47a;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        .add-todo-form input:focus {
+            outline: none;
+            border-color: #8b4513;
+        }
+
+        /* ===== АНИМАЦИОННЫЙ БЛОК ===== */
+        .animation-card {
+            background: linear-gradient(135deg, #f5e6d3 0%, #ecdcc0 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        .animation-card img {
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            max-width: 100%;
+            height: auto;
+        }
+        .animation-controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .anim-btn {
+            background: #8b4513;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .anim-btn:hover {
+            background: #6b3410;
+            transform: scale(1.05);
+        }
+
+        /* ===== НОВОСТИ ===== */
+        .news-badge {
+            background: linear-gradient(135deg, #e8c47a 0%, #d4a843 100%);
+            color: #3d2b1a;
+            padding: 8px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* ===== ФУТЕР ===== */
+        .footer {
+            background: linear-gradient(135deg, #3d2b1a 0%, #2a1d12 100%);
+            color: #e8d5b8;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        .footer a {
+            color: #e8c47a;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            color: white;
+        }
+
+        /* ===== КНОПКА НАВЕРХ ===== */
+        .top-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #8b4513;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .top-button:hover {
+            background: #6b3410;
+            transform: scale(1.1);
+        }
+        .top-button a {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        /* ===== МОДАЛЬНОЕ ОКНО ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 450px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        /* ===== АНИМАЦИИ ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+
+<!-- НАВИГАЦИЯ -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Меню</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">
+                <span>🧶</span> Вяжем вместе
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Главная</a></li>
+                <li><a href="#patterns">Схемы</a></li>
+                <li><a href="#stitches">Узоры</a></li>
+                <li><a href="#calculator">Калькулятор</a></li>
+                <li><a href="#ideas">Идеи</a></li>
+                <li><a href="form.html">Обратная связь</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    
+    <!-- ГЛАВНЫЙ БАННЕР -->
+    <div class="hero-section fade-up">
+        <h1>🧶 Вяжем вместе</h1>
+        <p>Бесплатные схемы, мастер-классы и вдохновение для тех, кто любит вязать</p>
+        <a href="#patterns" class="btn btn-knitting">Смотреть схемы →</a>
+    </div>
+
+    <!-- ПРЕИМУЩЕСТВА -->
+    <div class="row">
+        <div class="col-md-4 col-sm-6">
+            <div class="feature-card fade-up" style="animation-delay: 0.1s">
+                <div class="feature-icon">📖</div>
+                <h3>500+ схем</h3>
+                <p>Огромная коллекция узоров для спиц и крючка с подробными описаниями</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="feature-card fade-up" style="animation-delay: 0.2s">
+                <div class="feature-icon">🎓</div>
+                <h3>Видеоуроки</h3>
+                <p>Пошаговые мастер-классы для начинающих и опытных мастериц</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="feature-card fade-up" style="animation-delay: 0.3s">
+                <div class="feature-icon">💬</div>
+                <h3>Сообщество</h3>
+                <p>Общайтесь, делитесь работами и получайте советы от единомышленниц</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ТАБЛИЦА СХЕМ -->
+    <h2 id="patterns" style="margin: 40px 0 20px; color: #8b4513; font-family: 'Playfair Display', serif;">📋 Схемы вязания</h2>
+    <table class="table knitting-table">
+        <thead>
+            <tr><th>Изделие</th><th>Описание</th><th>Сложность</th><th>Материалы</th></tr>
+        </thead>
+        <tr onclick="window.location.href='/pattern/1'" style="cursor: pointer;">
+    <td>🧥 Ажурный свитер</td>
+    <td>Легкий летний свитер с романтичным узором</td>
+    <td><span class="difficulty-badge difficulty-medium">Средний</span></td>
+    <td>400г хлопка, спицы №3.5</td>
+</tr>
+<tr onclick="window.location.href='/pattern/2'" style="cursor: pointer;">
+    <td>🧣 Шарф с косами</td>
+    <td>Объемный тёплый шарф классическими косами</td>
+    <td><span class="difficulty-badge difficulty-easy">Начинающий</span></td>
+    <td>200г полушерсти, спицы №5</td>
+</tr>
+<tr onclick="window.location.href='/pattern/3'" style="cursor: pointer;">
+    <td>🧤 Шапка с отворотом</td>
+    <td>Модная шапка-бини двойной вязкой</td>
+    <td><span class="difficulty-badge difficulty-easy">Начинающий</span></td>
+    <td>150г мериноса, спицы №4</td>
+</tr>
+<tr onclick="window.location.href='/pattern/4'" style="cursor: pointer;">
+    <td>🧶 Кардиган "Лаванда"</td>
+    <td>Уютный кардиган регланом сверху</td>
+    <td><span class="difficulty-badge difficulty-hard">Сложный</span></td>
+    <td>600г шерсти, спицы №4.5</td>
+</tr>
+<tr onclick="window.location.href='/pattern/5'" style="cursor: pointer;">
+    <td>🧦 Тёплые носки</td>
+    <td>Классические носки с укреплённой пяткой</td>
+    <td><span class="difficulty-badge difficulty-easy">Начинающий</span></td>
+    <td>100г носочной пряжи, спицы №2.5</td>
+</tr>
+    </table>
+
+    <!-- БЛОК УЗОРОВ -->
+    <h2 id="stitches" style="margin: 40px 0 20px; color: #8b4513; font-family: 'Playfair Display', serif;">✨ Популярные узоры</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="pattern-card"><h4>📌 Лицевая гладь</h4><p>Классический узор для любых изделий: лицевые петли в лицевых рядах, изнаночные — в изнаночных.</p></div>
+            <div class="pattern-card"><h4>📌 Резинка 2x2</h4><p>Эластичный узор для манжет, горловин и шапок: 2 лицевые, 2 изнаночные.</p></div>
+            <div class="pattern-card"><h4>📌 Косы и жгуты</h4><p>Эффектные рельефные узоры для свитеров и кардиганов. Создаются перекрещиванием петель.</p></div>
+        </div>
+        <div class="col-md-6">
+            <div class="pattern-card"><h4>📌 Рис</h4><p>Двусторонний узор: чередование лицевых и изнаночных со сдвигом в каждом ряду.</p></div>
+            <div class="pattern-card"><h4>📌 Ажурные узоры</h4><p>Лёгкие и воздушные схемы с накидами для летних изделий и платков.</p></div>
+            <div class="pattern-card"><h4>📌 Патентная резинка</h4><p>Пышная и тёплая вязка для шапок, шарфов и снудов.</p></div>
+        </div>
+    </div>
+
+    <!-- АНИМАЦИЯ КАРТИНОК -->
+    <div class="animation-card">
+        <h3 style="color: #8b4513; margin-bottom: 15px;">🎨 Галерея готовых работ</h3>
+        <img id="animatedImage" src="https://i.pinimg.com/736x/aa/11/35/aa11355924230b7a5a418f96b08a2d95.jpg" alt="Ажурный свитер" width="300" height="200" style="object-fit: cover;">
+        <div class="animation-controls">
+            <button id="prevBtn" class="anim-btn">◀ Предыдущая</button>
+            <button id="nextBtn" class="anim-btn">Следующая ▶</button>
+            <button id="autoBtn" class="anim-btn">▶ Автопросмотр</button>
+            <button id="stopBtn" class="anim-btn">■ Стоп</button>
+        </div>
+        <p style="margin-top: 15px; color: #6b3410;">Вдохновляйтесь работами наших мастериц!</p>
+    </div>
+
+    <!-- КАЛЬКУЛЯТОР с управлением коллекцией пряжи -->
+    <div id="calculator" class="calculator-card">
+        <h3>📐 Калькулятор расхода пряжи</h3>
+        <div class="row">
+            <div class="col-md-5">
+                <h4>📦 Моя коллекция пряжи</h4>
+                <div id="yarnListContainer" class="yarn-list-container">
+                    <!-- Список пряжи будет генерироваться динамически -->
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button id="addYarnBtn" class="btn btn-knitting" style="flex: 1;">➕ Добавить</button>
+                    <button id="editYarnBtn" class="btn btn-outline" style="flex: 1;">✏️ Редактировать</button>
+                    <button id="deleteYarnBtn" class="btn" style="flex: 1; background: #dc3545; color: white; border: none;">🗑️ Удалить</button>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <h4>📏 Размеры изделия</h4>
+                <div id="projectInfo" style="background: #fdf0e0; padding: 15px; border-radius: 12px; margin-bottom: 15px;"></div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <label>Ширина (см):</label>
+                        <input type="number" id="projectWidth" class="form-control" value="50" style="margin-bottom: 10px;">
+                    </div>
+                    <div class="col-xs-6">
+                        <label>Высота (см):</label>
+                        <input type="number" id="projectHeight" class="form-control" value="60" style="margin-bottom: 10px;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <label>Плотность (петли/10см):</label>
+                        <input type="number" id="density" class="form-control" value="20" style="margin-bottom: 10px;">
+                    </div>
+                    <div class="col-xs-6">
+                        <label>Расход (г/100см²):</label>
+                        <input type="number" id="consumption" class="form-control" value="25" style="margin-bottom: 10px;">
+                    </div>
+                </div>
+                <button id="calculateBtn" class="btn btn-knitting">🧮 Рассчитать расход</button>
+                <button id="showPatternStatsBtn" class="btn btn-default" style="margin-left: 10px;">📊 Статистика узоров</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ПРЯЖИ -->
+    <div id="yarnModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modalTitle" style="color: #8b4513; margin-bottom: 20px;">➕ Добавить пряжу</h3>
+            <div class="form-group">
+                <label>Название/Цвет:</label>
+                <input type="text" id="yarnColor" class="form-control" placeholder="Например: Небесно-голубой">
+            </div>
+            <div class="form-group">
+                <label>Вес (грамм):</label>
+                <input type="number" id="yarnWeight" class="form-control" placeholder="100">
+            </div>
+            <div class="form-group">
+                <label>Длина (метров):</label>
+                <input type="number" id="yarnLength" class="form-control" placeholder="300">
+            </div>
+            <div class="form-group">
+                <label>Состав:</label>
+                <input type="text" id="yarnComposition" class="form-control" placeholder="100% хлопок">
+            </div>
+            <input type="hidden" id="editIndex" value="-1">
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button id="saveYarnBtn" class="btn btn-knitting" style="flex: 1;">💾 Сохранить</button>
+                <button id="closeModalBtn" class="btn btn-default" style="flex: 1;">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ДИНАМИЧЕСКИЙ СПИСОК ИДЕЙ -->
+    <div id="ideas" class="ideas-container">
+        <h3 style="color: #8b4513; margin-bottom: 20px;">💡 Мои планы на вязание</h3>
+        <p>Добавляйте идеи, отмечайте выполненные и вдохновляйтесь новыми проектами!</p>
+        
+        <ul id="todoList" class="todo-list">
+            <li><span class="todo-text">Связать тёплый свитер с круглой кокеткой</span><button class="delete-btn">Удалить</button></li>
+            <li><span class="todo-text">Ажурный палантин "Павлинье перо"</span><button class="delete-btn">Удалить</button></li>
+            <li><span class="todo-text">Плед из квадратов "Бабушкин сад"</span><button class="delete-btn">Удалить</button></li>
+        </ul>
+        
+        <div class="add-todo-form">
+            <input type="text" id="newTodoInput" placeholder="Новая идея...">
+            <button id="addTodoBtn" class="btn-knitting" style="padding: 10px 25px;">+ Добавить</button>
+        </div>
+        
+        <div style="margin-top: 15px;">
+            <span>📋 Всего идей: <strong id="todoCount">3</strong></span>
+            <button id="removeAllBtn" style="background: #6c757d; color: white; border: none; padding: 5px 15px; border-radius: 8px; margin-left: 15px;">🗑️ Удалить всё</button>
+        </div>
+    </div>
+
+    <!-- НОВИНКИ -->
+    <div style="background: linear-gradient(135deg, #8b4513 0%, #6b3410 100%); border-radius: 20px; padding: 30px; margin: 30px 0; color: white;">
+        <div class="news-badge" style="background: #e8c47a; color: #3d2b1a;">🆕 Новинки весна-лето 2026</div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>🌿 Ажурные топы</h3>
+                <p>Легкие, дышащие модели для жарких дней. Схемы с кружевными узорами и филейной сеткой.</p>
+            </div>
+            <div class="col-md-6">
+                <h3>📹 Видео-курс</h3>
+                <p>Бесплатный курс "Вязание реглана сверху" — смотрите и создавайте бесшовные изделия!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- СОВЕТЫ И ПОДПИСКА -->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well" style="background: white; border: 1px solid #e8c47a; border-radius: 15px;">
+                <h3 style="color: #8b4513;">💡 Полезные советы</h3>
+                <p><strong>• Как рассчитать петли?</strong> Свяжите образец 10×10 см, посчитайте петли и умножьте на ширину изделия.</p>
+                <p><strong>• Уход за вязаными вещами:</strong> Стирайте в холодной воде с мягким моющим средством, сушите в горизонтальном положении.</p>
+                <p><strong>• Выбор пряжи:</strong> Для детских вещей выбирайте хлопок или бамбук, для зимних — меринос или альпаку.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="well" style="background: white; border: 1px solid #e8c47a; border-radius: 15px; padding: 20px;">
+                <h3 style="color: #8b4513; margin-bottom: 20px;">📧 Рассылка схем</h3>
+                <div style="display: flex; gap: 10px; align-items: stretch;">
+                    <input type="email" class="form-control" id="subscribeEmail" placeholder="Ваш email" style="flex: 3; border: 2px solid #e8d5b8; border-radius: 50px; padding: 12px 15px; font-size: 14px;">
+                    <button class="btn btn-knitting" id="subscribeBtn" style="flex: 2; padding: 12px 15px; white-space: nowrap;">Подписаться</button>
+                </div>
+                <p style="margin-top: 15px; font-size: 12px; color: #999;">📬 Без спама, только лучшие схемы раз в неделю</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ССЫЛКА НА ОБРАТНУЮ СВЯЗЬ -->
+    <div class="text-center" style="margin: 30px 0;">
+        <a href="form.html" class="btn btn-lg btn-knitting">
+            📝 Обратная связь
+        </a>
+    </div>
+
+</div>
+
+<!-- ФУТЕР -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>🧶 Вяжем вместе</h4>
+                <p>Сайт для тех, кто любит вязание. Схемы, уроки, вдохновение.</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Контакты</h4>
+                <p>📧 info@vyazhem-vmeste.ru</p>
+                <p>📱 +7 (999) 123-45-67</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Мы в соцсетях</h4>
+                <p>
+                    <a href="#">Instagram</a> | 
+                    <a href="#">VK</a> | 
+                    <a href="#">Telegram</a>
+                </p>
+            </div>
+        </div>
+        <hr style="border-color: #5a3a22;">
+        <p class="text-center">© 2026 Вяжем вместе. Все права защищены.</p>
+    </div>
+</div>
+
+<!-- КНОПКА НАВЕРХ -->
+<div class="top-button">
+    <a href="#" id="topLink">↑</a>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // === АНИМАЦИЯ КАРТИНОК ===
+        const imageUrls = [
+            "https://i.pinimg.com/736x/aa/11/35/aa11355924230b7a5a418f96b08a2d95.jpg",
+            "https://i.pinimg.com/1200x/c7/4d/8f/c74d8fd39627af9381d7bdc027152875.jpg",
+            "https://i.pinimg.com/736x/8d/02/9b/8d029be5a13f334a664fd2da9c34b2c0.jpg",
+            "https://i.pinimg.com/736x/8e/b3/c3/8eb3c36f2fb2a7bc845e8cc4d13591fe.jpg",
+            "https://i.pinimg.com/1200x/41/da/5f/41da5f2a7ce5bdedbe7a6f46b14cbed6.jpg"
+        ];
+        let currentIndex = 0;
+        let interval = null;
+        const $animatedImage = $('#animatedImage');
+        
+        function changeImage(index) {
+            currentIndex = (index + imageUrls.length) % imageUrls.length;
+            $animatedImage.attr('src', imageUrls[currentIndex]);
+        }
+        $('#nextBtn').click(function() { if(interval) clearInterval(interval); changeImage(currentIndex + 1); });
+        $('#prevBtn').click(function() { if(interval) clearInterval(interval); changeImage(currentIndex - 1); });
+        $('#autoBtn').click(function() { if(interval) clearInterval(interval); interval = setInterval(() => changeImage(currentIndex + 1), 2000); });
+        $('#stopBtn').click(function() { if(interval) clearInterval(interval); interval = null; });
+
+        // === УПРАВЛЕНИЕ КОЛЛЕКЦИЕЙ ПРЯЖИ ===
+        let yarnCollection = [];
+        let selectedYarnIndex = 0;
+
+        // Загрузка из localStorage
+        function loadYarnCollection() {
+            const saved = localStorage.getItem('yarnCollection');
+            if (saved) {
+                yarnCollection = JSON.parse(saved);
+            } else {
+                yarnCollection = [
+                    { color: "Бежевый", weight: 100, length: 300, composition: "100% хлопок" },
+                    { color: "Терракотовый", weight: 50, length: 130, composition: "50% шерсть, 50% акрил" },
+                    { color: "Мятный", weight: 100, length: 280, composition: "100% мерсеризованный хлопок" },
+                    { color: "Лаванда", weight: 50, length: 150, composition: "70% шерсть, 30% шелк" },
+                    { color: "Пыльная роза", weight: 100, length: 320, composition: "100% меринос" }
+                ];
+            }
+            if (yarnCollection.length > 0) selectedYarnIndex = 0;
+        }
+
+        function saveYarnCollection() {
+            localStorage.setItem('yarnCollection', JSON.stringify(yarnCollection));
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
+        }
+
+        function renderYarnList() {
+            const $container = $('#yarnListContainer');
+            $container.empty();
+            
+            if (yarnCollection.length === 0) {
+                $container.html('<div style="padding: 20px; text-align: center; color: #999;">Нет пряжи. Добавьте первую!</div>');
+                return;
+            }
+            
+            yarnCollection.forEach((yarn, index) => {
+                const meterage = (yarn.length / yarn.weight * 100).toFixed(0);
+                const isSelected = index === selectedYarnIndex;
+                const $item = $(`
+                    <div class="yarn-item ${isSelected ? 'selected' : ''}" data-index="${index}">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <strong style="color: #8b4513;">${escapeHtml(yarn.color)}</strong>
+                            <span style="font-size: 12px; background: #f5ede0; padding: 2px 8px; border-radius: 15px;">${meterage} м/100г</span>
+                        </div>
+                        <div style="font-size: 13px; color: #666; margin-top: 5px;">
+                            ${yarn.weight}г / ${yarn.length}м | ${escapeHtml(yarn.composition)}
+                        </div>
+                    </div>
+                `);
+                $item.click(function() {
+                    selectedYarnIndex = index;
+                    renderYarnList();
+                    updateProjectInfoDisplay();
+                });
+                $container.append($item);
+            });
+        }
+
+        function updateProjectInfoDisplay() {
+            if (yarnCollection.length === 0) {
+                $('#projectInfo').html('<div style="padding: 15px; text-align: center; color: #999;">Добавьте пряжу для расчёта</div>');
+                return;
+            }
+            const yarn = yarnCollection[selectedYarnIndex];
+            const meterage = (yarn.length / yarn.weight * 100).toFixed(0);
+            $('#projectInfo').html(`
+                <strong style="font-size: 16px; color: #8b4513;">🧶 Выбрано: ${escapeHtml(yarn.color)}</strong><br>
+                📦 ${yarn.weight} г / ${yarn.length} м<br>
+                📏 ${meterage} м/100г<br>
+                🧵 ${escapeHtml(yarn.composition)}
+            `);
+        }
+
+        // Модальное окно
+        let currentEditIndex = -1;
+
+        function openModal(editIndex = -1) {
+            if (editIndex >= 0 && yarnCollection[editIndex]) {
+                $('#modalTitle').text('✏️ Редактировать пряжу');
+                $('#yarnColor').val(yarnCollection[editIndex].color);
+                $('#yarnWeight').val(yarnCollection[editIndex].weight);
+                $('#yarnLength').val(yarnCollection[editIndex].length);
+                $('#yarnComposition').val(yarnCollection[editIndex].composition);
+                $('#editIndex').val(editIndex);
+            } else {
+                $('#modalTitle').text('➕ Добавить пряжу');
+                $('#yarnColor').val('');
+                $('#yarnWeight').val('');
+                $('#yarnLength').val('');
+                $('#yarnComposition').val('');
+                $('#editIndex').val(-1);
+            }
+            $('#yarnModal').css('display', 'flex');
+        }
+
+        function closeModal() {
+            $('#yarnModal').hide();
+        }
+
+        function saveYarn() {
+            const color = $('#yarnColor').val().trim();
+            const weight = parseInt($('#yarnWeight').val());
+            const length = parseInt($('#yarnLength').val());
+            const composition = $('#yarnComposition').val().trim();
+            
+            if (!color) { alert('Введите название/цвет пряжи'); return; }
+            if (!weight || weight <= 0) { alert('Введите корректный вес'); return; }
+            if (!length || length <= 0) { alert('Введите корректную длину'); return; }
+            if (!composition) { alert('Введите состав пряжи'); return; }
+            
+            const newYarn = { color, weight, length, composition };
+            const editIndex = parseInt($('#editIndex').val());
+            
+            if (editIndex >= 0 && editIndex < yarnCollection.length) {
+                yarnCollection[editIndex] = newYarn;
+            } else {
+                yarnCollection.push(newYarn);
+                selectedYarnIndex = yarnCollection.length - 1;
+            }
+            
+            saveYarnCollection();
+            renderYarnList();
+            updateProjectInfoDisplay();
+            closeModal();
+        }
+
+        function deleteSelectedYarn() {
+            if (yarnCollection.length === 0) {
+                alert('Нет пряжи для удаления');
+                return;
+            }
+            if (confirm(`Удалить пряжу "${yarnCollection[selectedYarnIndex].color}"?`)) {
+                yarnCollection.splice(selectedYarnIndex, 1);
+                if (yarnCollection.length === 0) {
+                    selectedYarnIndex = 0;
+                } else if (selectedYarnIndex >= yarnCollection.length) {
+                    selectedYarnIndex = yarnCollection.length - 1;
+                }
+                saveYarnCollection();
+                renderYarnList();
+                updateProjectInfoDisplay();
+            }
+        }
+
+        function editSelectedYarn() {
+            if (yarnCollection.length === 0) {
+                alert('Нет пряжи для редактирования');
+                return;
+            }
+            openModal(selectedYarnIndex);
+        }
+
+        // Расчёт
+        $('#calculateBtn').click(function() {
+            if (yarnCollection.length === 0) {
+                $('#projectInfo').html(`<div style="background:#f8d7da; padding:10px; border-radius:8px;">⚠️ Сначала добавьте пряжу в коллекцию!</div>`);
+                return;
+            }
+            
+            const width = parseInt($('#projectWidth').val()) || 50;
+            const height = parseInt($('#projectHeight').val()) || 60;
+            const density = parseInt($('#density').val()) || 20;
+            const consumptionPer100 = parseInt($('#consumption').val()) || 25;
+            
+            const area = width * height;
+            const needed = Math.ceil(area / 100 * consumptionPer100);
+            const yarn = yarnCollection[selectedYarnIndex];
+            const totalLoops = Math.ceil(width / 10 * density) * Math.ceil(height / 10 * density);
+            
+            let statusHtml = `
+                <div style="background:#fdf0e0; padding:12px; border-radius:8px;">
+                    <strong>📐 Расчёт для "${escapeHtml(yarn.color)}":</strong><br>
+                    📏 Площадь: ${area} кв.см<br>
+                    🔄 Примерно петель: ~${totalLoops}<br>
+                    ⚖️ Расход пряжи: ~${needed} г<br>
+            `;
+            
+            if (yarn.weight >= needed) {
+                statusHtml += `<span style="color:#28a745;">✅ Пряжи хватит! У вас ${yarn.weight}г, нужно ${needed}г</span>`;
+            } else {
+                statusHtml += `<span style="color:#dc3545;">⚠️ Пряжи не хватит! Нужно ${needed}г, у вас ${yarn.weight}г. Докупите ${needed - yarn.weight}г</span>`;
+            }
+            statusHtml += `</div>`;
+            $('#projectInfo').html(statusHtml);
+        });
+
+        $('#showPatternStatsBtn').click(function() {
+            $('#projectInfo').html(`<div style="background:#fdf0e0; padding:12px; border-radius:8px;">
+                <strong>📊 Статистика узоров:</strong><br>
+                • Самая популярная техника: жаккард (87% мастериц)<br>
+                • Средний расход пряжи на свитер: 450г<br>
+                • Чаще всего вяжут: шапки → шарфы → свитера<br>
+                • Самый популярный цвет пряжи: бежевый (42%)
+            </div>`);
+        });
+
+        // Инициализация калькулятора
+        loadYarnCollection();
+        renderYarnList();
+        updateProjectInfoDisplay();
+
+        // Обработчики калькулятора
+        $('#addYarnBtn').click(() => openModal(-1));
+        $('#editYarnBtn').click(editSelectedYarn);
+        $('#deleteYarnBtn').click(deleteSelectedYarn);
+        $('#saveYarnBtn').click(saveYarn);
+        $('#closeModalBtn').click(closeModal);
+        $(window).click(function(e) {
+            if ($(e.target).is('#yarnModal')) closeModal();
+        });
+
+        // === ДИНАМИЧЕСКИЙ СПИСОК ИДЕЙ ===
+        let todoCount = $('#todoList li').length;
+        $('#todoCount').text(todoCount);
+        
+        function bindEvents($item) {
+            $item.find('.delete-btn').off().click(function() {
+                $item.remove();
+                todoCount = $('#todoList li').length;
+                $('#todoCount').text(todoCount);
+            });
+            $item.find('.todo-text').off().click(function() {
+                $(this).toggleClass('completed');
+            });
+        }
+        
+        $('#todoList li').each(function() { bindEvents($(this)); });
+        
+        $('#addTodoBtn').click(function() {
+            const text = $('#newTodoInput').val().trim();
+            if(text === '') { alert('Введите идею!'); return; }
+            const $newItem = $(`<li><span class="todo-text">${escapeHtml(text)}</span><button class="delete-btn">Удалить</button></li>`);
+            bindEvents($newItem);
+            $('#todoList').append($newItem);
+            $('#newTodoInput').val('');
+            todoCount = $('#todoList li').length;
+            $('#todoCount').text(todoCount);
+        });
+        
+        $('#removeAllBtn').click(function() {
+            if (confirm('Удалить все идеи?')) {
+                $('#todoList').empty();
+                todoCount = 0;
+                $('#todoCount').text(0);
+            }
+        });
+        
+        $('#newTodoInput').keypress(function(e) { if(e.which === 13) $('#addTodoBtn').click(); });
+        
+        // === ПОДПИСКА ===
+        $('#subscribeBtn').click(function() {
+            const email = $('#subscribeEmail').val();
+            if(email && email.includes('@') && email.includes('.')) {
+                alert('Спасибо за подписку! Новые схемы придут на ' + email);
+                $('#subscribeEmail').val('');
+            } else {
+                alert('Введите корректный email');
+            }
+        });
+        
+        // === КНОПКА НАВЕРХ ===
+        $('.top-button').hide();
+        $(window).scroll(function() {
+            if($(window).scrollTop() > 300) $('.top-button').fadeIn();
+            else $('.top-button').fadeOut();
+        });
+        $('#topLink').click(function(e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, 500);
+        });
+        
+        // === ПЛАВНАЯ ПРОКРУТКА ДЛЯ ЯКОРЕЙ ===
+        $('a[href^="#"]').click(function(e) {
+            const target = $(this.attr('href'));
+            if(target.length) {
+                e.preventDefault();
+                $('html, body').animate({ scrollTop: target.offset().top - 70 }, 500);
+            }
+        });
+        
+        console.log("✅ Сайт полностью готов! Коллекция пряжи сохраняется в localStorage");
+    });
+</script>
+
+</body>
+</html>
